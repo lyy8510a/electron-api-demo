@@ -1,0 +1,48 @@
+<template class="task-template">
+  <section id="tray-section" class="section js-section u-category-native-ui">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-native-ui"></use></svg>
+          托盘
+        </h1>
+        <h3><code> tray </code>模块允许您在操作系统的通知区域中创建图标。</h3>
+        <p>此图标还可以附加一个上下文菜单。</p>
+
+        <p>Open the <a href="http://electron.atom.io/docs/api/tray">full API documentation<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser.</p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="tray-demo-toggle" class="js-container-target demo-toggle-button">托盘
+          <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux | Process: Main</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="put-in-tray">查看示例</button>
+            <span class="demo-response" id="tray-countdown"></span>
+          </div>
+          <p>演示按钮使用<code> ipc </code>模块将消息发送到主进程。 在主要过程中，该应用程序被告知将带有上下文菜单的图标放置在任务栏中。</p>
+
+          <p>在此示例中，可以通过单击上下文菜单中的“删除”或再次选择演示按钮来删除托盘图标。</p>
+          <h5>Main Process</h5>
+          <pre><code data-path="main-process/native-ui/tray/tray.js"></code></pre>
+          <h5>Renderer Process</h5>
+          <pre><code data-path="renderer-process/native-ui/tray/tray.js"></code></pre>
+
+          <div class="demo-protip">
+            <h2>ProTip</h2>
+            <strong>Linux中的托盘支持。</strong>
+            <p>在仅支持应用程序指示器的Linux发行版上，用户将需要安装<code> libappindicator1 </code>才能使任务栏图标起作用。 请参阅<a href="http://electron.atom.io/docs/api/tray">完整的API文档<span class =“u-visible-to-screen-reader”>（在新窗口中打开）</span> </a>了解有关在Linux上使用Tray的更多详细信息。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/native-ui/tray/tray')
+    </script>
+
+  </section>
+</template>

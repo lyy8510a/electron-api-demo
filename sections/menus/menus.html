@@ -1,0 +1,70 @@
+<template class="task-template">
+  <section id="menus-section" class="section js-section u-category-menu">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-menu"></use></svg>
+          自定义菜单
+        </h1>
+        <h3><code> Menu </code>和<code> MenuItem </code>模块可用于创建自定义本机菜单</h3>
+
+        <p>有两种菜单：应用程序（顶部）菜单和上下文（右键单击）菜单。</p>
+
+        <p>其他自己去看 <a href="http://electron.atom.io/docs/api/menu">官方文档<span class="u-visible-to-screen-reader">(opens in new window)</span></a></p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="application-menu-demo-toggle" class="js-container-target demo-toggle-button">创建一个应用程序菜单
+          <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Main</div>
+        </button>
+        <div class="demo-box">
+          <p><code> Menu </code>和<code> MenuItem </code>模块允许您自定义应用程序菜单。 如果您未设置任何菜单，Electron将默认为您的应用生成一个最小菜单。</p>
+
+          <p>此应用使用下面的代码设置应用菜单。 如果单击应用程序菜单中的“查看”选项，然后单击“应用程序菜单演示”，则会看到一个信息框。</p>
+          <h5>Main Process</h5>
+          <pre><code data-path="main-process/menus/application-menu.js"></code></pre>
+
+          <div class="demo-protip">
+            <h2>ProTip</h2>
+            <strong>了解操作系统菜单的差异。</strong>
+            <p>在为多个操作系统设计应用程序时，请务必注意每种操作系统上应用程序菜单约定的不同方式。</p>
+            <p>例如，在Windows上，加速器设置为<code>＆</code>。 命名约定也有所不同，例如在“设置”或“首选项”之间。 以下是学习操作系统特定标准的资源。</p>
+            <ul>
+              <li><a href="https://developer.apple.com/macos/human-interface-guidelines/menus/menu-anatomy/">macOS<span class="u-visible-to-screen-reader">(opens in new window)</span></a></li>
+              <li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/bb226797(v=vs.85).aspx">Windows<span class="u-visible-to-screen-reader">(opens in new window)</span></a></li>
+              <li><a href="https://developer.gnome.org/hig/stable/menu-bars.html.en">Linux<span class="u-visible-to-screen-reader">(opens in new window)</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="context-menu-demo-toggle" class="js-container-target demo-toggle-button">创建上下文菜单
+          <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Main</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="context-menu">View Demo</button>
+          </div>
+          <p>也可以使用<code> Menu </code>和<code> MenuItem </code>模块创建上下文菜单或右键单击菜单。 您可以在此应用中的任何位置单击鼠标右键，或单击“演示”按钮以查看示例上下文菜单。</p>
+
+          <p>在此演示中，当从渲染器进程中显式调用上下文菜单时，我们使用<code> ipcRenderer </code>模块显示上下文菜单。</p>
+          <p>See the full <a href="http://electron.atom.io/docs/api/web-contents/#event-context-menu">context-menu event documentation</a> for all the available properties.</p>
+          <h5>Main Process</h5>
+          <pre><code data-path="main-process/menus/context-menu.js"></code></pre>
+          <h5>Renderer Process</h5>
+          <pre><code data-path="renderer-process/menus/context-menu.js"></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/menus/context-menu')
+    </script>
+
+  </section>
+</template>

@@ -1,0 +1,44 @@
+<template class="task-template">
+  <section id="protocol-section" class="section js-section u-category-system">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-system"></use></svg>
+          协议处理程序
+        </h1>
+        <h3><code> app </code>模块提供了用于处理协议的方法。</h3>
+        <p>这些方法可让您设置和取消设置应用程序应为默认应用程序的协议。 与浏览器要求您默认为查看网页时类似。</p>
+
+        <p>Open the <a href="http://electron.atom.io/docs/api/app">full app API documentation<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser.</p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="copy-to-demo-toggle" class="js-container-target demo-toggle-button">从另一个应用程序中的URL启动应用程序
+          <div class="demo-meta u-avoid-clicks">Supports: Win, macOS <span class="demo-meta-divider">|</span> Process: Main</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="protocol-handler">View Demo</button>
+          </div>
+          <p>您可以将您的应用设置为针对特定协议打开的默认应用。 例如，在此演示中，我们将此应用设置为<code> electron-api-demos：// </code>的默认设置。 上面的演示按钮将在您的默认浏览器中启动带有链接的页面。 单击该链接，它将重新启动该应用程序。</p>
+          <h5>打包</h5>
+          <p>打包您的应用程序后，此功能仅在macOS上可用。 从命令行在开发中启动它时将不起作用。 打包应用程序时，您需要确保该应用程序的macOS <code> plist </code>已更新为包括新的协议处理程序。 如果您使用的是<code> electron-packager </code>，则可以添加标记<code>-extend-info </code>以及创建的<code> plist </code>的路径 。 该应用程序的一个在下面。</p>
+          <h5>Renderer Process</h5>
+          <pre><code data-path="renderer-process/system/protocol-handler.js"></code></pre>
+          <h5>Main Process</h5>
+          <pre><code data-path="main-process/system/protocol-handler.js"></code></pre>
+          <h5>macOS plist</h5>
+          <pre><code class="language-xml" data-path="assets/mac/info.plist"></code></pre>
+        </div>
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      require('./renderer-process/system/protocol-handler')
+    </script>
+
+  </section>
+</template>

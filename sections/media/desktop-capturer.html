@@ -1,0 +1,38 @@
+<template class="task-template">
+  <section id="desktop-capturer-section" class="section js-section u-category-media">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-media"></use></svg>
+          截屏
+        </h1>
+        <h3>Electron中的<code> desktopCapturer </code>模块可用于访问可通过Chromium中的<code> getUserMedia </code> Web API获得的任何媒体，例如音频，视频，屏幕和窗口。</h3>
+
+        <p>Open the <a href="http://electron.atom.io/docs/api/desktop-capturer">full API documentation<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser.</p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="print-pdf-demo-toggle" class="js-container-target demo-toggle-button">截图
+          <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux | Process: Renderer</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="screen-shot">查看示例</button>
+            <span class="demo-response is-selectable" id="screenshot-path"></span>
+          </div>
+          <p>该演示使用<code> desktopCapturer </code>模块收集正在使用的屏幕，并选择整个屏幕并拍摄可见的快照。</p>
+          <p>单击演示按钮将截取当前屏幕的屏幕截图，并在默认查看器中将其打开。</p>
+          <h5>Renderer Process</h5>
+          <pre><code data-path="renderer-process/media/desktop-capturer.js"></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/media/desktop-capturer')
+    </script>
+
+  </section>
+</template>

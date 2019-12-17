@@ -1,0 +1,68 @@
+<template class="task-template">
+  <section id="crash-hang-section" class="section js-section u-category-windows">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+          处理窗口崩溃和挂起
+        </h1>
+        <h3>当渲染器进程崩溃或挂起时，<code> BrowserWindow </code>模块将发出事件。 您可以侦听这些事件，并为用户提供重新加载，等待或关闭该窗口的机会。</h3>
+
+        <p>Open the <a href="http://electron.atom.io/docs/api/browser-window">full API documentation<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser.</p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-crashes-demo-toggle" class="js-container-target demo-toggle-button">进程崩溃后重新启动窗口
+          <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Main</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="process-crash">查看示例</button>
+          </div>
+          <p>在此演示中，我们创建一个新窗口（通过<code> remote </code>模块），并提供一个链接，该链接将使用<code> process.crash（）</code>强制崩溃.</p>
+          <p>窗口正在监听崩溃事件，当事件发生时，它会用两个选项提示用户：重新加载或关闭.</p>
+
+          <h5>Renderer Process</h5>
+          <pre><code data-path="renderer-process/windows/process-crash.js"></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-hangs-demo-toggle" class="js-container-target demo-toggle-button">进程挂起后重新启动窗口
+          <div class="demo-meta u-avoid-clicks">Supports: Win, macOS, Linux <span class="demo-meta-divider">|</span> Process: Main</div>
+        </button>
+        <div class="demo-box">
+          <div class="demo-controls">
+            <button class="demo-button" id="process-hang">查看示例</button>
+          </div>
+          <p>在此演示中，我们创建一个新窗口（通过<code> remote </code>模块），并提供一个链接，该链接将使用<code> process.hang（）</code>强制使进程挂起。</p>
+          <p>窗口正在侦听该过程以使其正式无响应（这可能需要30秒）。 发生此事件时，它通过两个选项提示用户：重新加载或关闭。</p>
+
+          <h5>Renderer Process</h5>
+          <pre><code data-path="renderer-process/windows/process-hang.js"></code></pre>
+
+          <div class="demo-protip">
+            <h2>ProTip</h2>
+            <strong>等待过程再次响应。</strong>
+            <p>在进程挂起的情况下，第三个选择是等待并查看问题是否解决，从而使该进程再次响应。 为此，请使用<code> BrowserWindow </code>事件“响应”，如下所示。</p>
+            <pre><code class="language-js">win.on('responsive', function () {
+  // Do something when the window is responsive again
+})</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+      require('./renderer-process/windows/process-crash')
+      require('./renderer-process/windows/process-hang')
+    </script>
+
+  </section>
+</template>
