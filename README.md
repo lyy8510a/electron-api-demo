@@ -46,14 +46,3 @@ For easier developing you can launch the app in fullscreen with DevTools open:
 ```bash
 $ npm run dev
 ```
-
-## Extending
-
- [Read the docs](docs.md) to learn more about how this app is built or how to [add a new demo](docs.md#add-a-section-or-demo).
-
-## Translations
-
-* Simplified Chinese translation of this app is available at [`demopark/electron-api-demos-Zh_CN`](https://github.com/demopark/electron-api-demos-Zh_CN).
-* Traditional Chinese translation of this app is available at [`CalvertYang/electron-api-demos-zh-Hant`](https://github.com/CalvertYang/electron-api-demos-zh-Hant).
-
-Note: these versions are maintained by outside contributors and may not always be in sync with this version.
