@@ -30,7 +30,10 @@ You can [download the latest release](https://github.com/electron/electron-api-d
 You'll need [Node.js](https://nodejs.org) installed on your computer in order to build this app.
 
 ```bash
+这个是官方原版
 $ git clone https://github.com/electron/electron-api-demos
+这个是个人汉化版
+$ git clone https://github.com/lyy8510a/electron-api-demo
 $ cd electron-api-demos
 $ npm install
 $ npm start
